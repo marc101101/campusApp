@@ -5,9 +5,9 @@
     background-color: #769941;
     border-radius: 15rem;
     position: absolute;
-    margin-top: -1rem;
-    margin-left: 2rem;
-
+    margin-top: -12rem;
+    margin-left: -7rem;
+    z-index: -1;
 }
 
 .fullscreenBackground {
@@ -24,8 +24,10 @@
 }
 
 .title {
-    font-size: 1.25rem !important;
+    font-size: 0.95rem !important;
     padding-left: 1rem;
+    margin-top: 0.5rem;
+    margin-bottom: -0.5rem !important;
 }
 
 .subtitle {
@@ -51,7 +53,7 @@
 
 .headline-style{
     font-size: 1.5rem; 
-    color:#769941;
+    color:white;
 }
 
 .subheadline-style{
@@ -74,6 +76,7 @@
 
 .padding-1{
     padding: 1rem;
+    margin-top: -1rem;
 }
 
 .primary{
@@ -116,4 +119,9 @@
     padding-left: 1.35rem;
     padding-top: 0.8rem;
     margin-left: 1rem;
+}
+
+h3{
+    font-size: 90%;
+    font-weight: 600;
 }
