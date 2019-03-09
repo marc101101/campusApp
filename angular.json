@@ -86,7 +86,9 @@
             "tsConfig": "src/tsconfig.spec.json",
             "karmaConfig": "src/karma.conf.js",
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",
+              "../node_modules/mapbox-gl/dist/mapbox-gl.css",
+              "../node_modules/mapbox-gl-geocoder/lib/mapbox-gl-geocoder.css"
             ],
             "scripts": [],
             "assets": [

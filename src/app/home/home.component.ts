@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HomeService } from '../services/home.service';
+import { BandService } from '../services/band.service';
 
 @Component({
   selector: 'app-home',
@@ -10,38 +11,20 @@ export class HomeComponent implements OnInit {
 
   dataIsAvailable: boolean = false;
   news = [];
-  current_acts = [
-    {
-      name: "Liquid & Maniac",
-      place: "NH1",
-      time: "11:15 Uhr"
-    },
-    {
-      name: "Blumentopf",
-      place: "Center Stage",
-      time: "13:15 Uhr"
-    },
-    {
-      name: "Rammstein",
-      place: "Center Stage",
-      time: "16:15 Uhr"
-    },
-    {
-      name: "Prinz Pi",
-      place: "Center Stage",
-      time: "22:15 Uhr"
-    }
-  ]
+  current_acts = [];
 
-  constructor(public homeService: HomeService) {  }
+  constructor(public homeService: HomeService, public bandService: BandService) {  }
 
   ngOnInit() {
     this.homeService.getNews().subscribe(response => {
-      this.news = response;
-      this.dataIsAvailable = true;
+      this.news = response.data;
       console.log(this.news);
       
-    })
+      this.dataIsAvailable = true;      
+    });
+    this.bandService.getAllBands().subscribe(response => {
+      this.current_acts = response.data;
+    });
   }
 
 }

@@ -19,6 +19,16 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { MaterialModule } from './sharedModule/material/material.module';
 import { DialogUserComponent } from './dialog-user/dialog-user.component';
 import { ChatModule } from './chat/chat.module';
+import { MapComponent } from './map/map.component';
+import { DetailsComponent } from './details/details.component';
+import { BandService } from './services/band.service';
+import { FavouriteComponent } from './favourite/favourite.component';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { LoaderInterceptorService } from './services/loader-interceptor.service';
+import { LoaderComponent } from './loader/loader.component';
+import { AlertComponent } from './sharedModule/alert/alert.component';
+
+import { NgxMapboxGLModule } from 'ngx-mapbox-gl';
 
 @NgModule({
   declarations: [
@@ -27,20 +37,35 @@ import { ChatModule } from './chat/chat.module';
     PageNotFoundComponent,
     MenuComponent,
     TimetableComponent,
+    DetailsComponent,
+    FavouriteComponent,
+    LoaderComponent,
+    MapComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     AppRoutingModule,
+    HttpClientModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
+    NgxMapboxGLModule.withConfig({
+      accessToken:'pk.eyJ1Ijoib3dsd2FsZCIsImEiOiJjajF5eGtncGYwMDBzMzNvY2ZlZHhzdWIyIn0.MzZyfZ3aAcYro6YPyy2CqQ'
+    })
     BrowserAnimationsModule,
     MaterialModule,
     ChatModule,
-    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [
     CommunicationService,
     AlertService,
     HomeService,
+    BandService,
+    HttpClientModule,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: LoaderInterceptorService,
+      multi: true
+    }
     SocketService
     ],
   bootstrap: [AppComponent],
