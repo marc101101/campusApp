@@ -13,7 +13,7 @@ export class BandService {
         band: "Rammstein",
         time: "Samstag 21.04.2019, 11:15 - 13:30",
         stage: "Center Stage",
-        details: "Rammstein ist eine deutsche Rockband, die 1994 in Berlin gegründet wurde und musikalisch zur Neuen Deutschen Härte gezählt wird. Ihr Kennzeichen ist ein als „brachial“ beschriebener Musikstil, den die Bandmitglieder zu Beginn ihrer Karriere selbst als „Tanzmetall“ bezeichneten."
+        details: "Rammstein (ursprünglich „Rammstein Flugschau“[2]) ist eine deutsche Rockband, die 1994 in Berlin gegründet wurde und musikalisch zur Neuen Deutschen Härte gezählt wird. Ihr Kennzeichen ist ein als „brachial“ beschriebener[3][4] Musikstil, den die Bandmitglieder zu Beginn ihrer Karriere selbst als „Tanzmetall“ bezeichneten.[5] Rammstein ist international berühmt für den intensiven Einsatz von pyrotechnischen Elementen während ihrer Live-Shows.[6]"
       },
       {
         id:1,

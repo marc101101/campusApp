@@ -16,11 +16,26 @@
             <i class="fa fa-map-marker" aria-hidden="true"></i>
             {{band.stage}}
         </div>
-
-      </div>
-      <div class="columns is-mobile">
       </div>
     </div>
+    
+    <div style=" width: 49%; float:left">
+      <button class="button is-primary is-medium is-fullwidth" 
+      style="background-color:#67D862; color:white; border-radius: 5rem;" href="">
+          <i class="fa fa-spotify" aria-hidden="true" style="margin-right: 0.5rem"></i>
+          Play 
+      </button>
+    </div>
+    <div style="width: 49%; float:right">
+      <button class="button is-primary is-medium is-fullwidth" 
+      style="background-color:#ffdd57; color:black; border-radius: 5rem;" href="">
+          <i class="fa fa-star-o" aria-hidden="true" style="margin-right: 0.5rem"></i>
+        Add
+        </button>
+    </div>
+    <p style="margin-top: 5rem">
+      {{band.details}}
+    </p>
   </section>
 
   <section class="padding-1" *ngIf="dataIsAvailable">
