@@ -4,6 +4,7 @@ import { HomeComponent } from './home/home.component';
 import { PageNotFoundComponent } from './not-found';
 import { TimetableComponent } from './timetable/timetable.component';
 import { DetailsComponent } from './details/details.component';
+import { FavouriteComponent } from './favourite/favourite.component';
 
 const routes: Routes = [
   {
@@ -22,6 +23,10 @@ const routes: Routes = [
   {
     path: 'details/:id',
     component: DetailsComponent
+  },
+  {
+    path: 'favourites',
+    component: FavouriteComponent
   },
   {
       path: '**',

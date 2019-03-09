@@ -15,6 +15,7 @@ import { HomeService } from './services/home.service';
 import { TimetableComponent } from './timetable/timetable.component';
 import { DetailsComponent } from './details/details.component';
 import { BandService } from './services/band.service';
+import { FavouriteComponent } from './favourite/favourite.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { BandService } from './services/band.service';
     ChatComponent,
     MenuComponent,
     TimetableComponent,
-    DetailsComponent
+    DetailsComponent,
+    FavouriteComponent
   ],
   imports: [
     BrowserModule,

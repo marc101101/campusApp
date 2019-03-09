@@ -21,8 +21,11 @@
           Spielzeit: {{entry.time}}
           </p>
       </div>
-      <a class="button is-fullwidth is-warning nav-button">
+      <a *ngIf="!entry.alreadyAdded" class="button is-fullwidth is-warning nav-button" (click)="addToFavs(entry)">
         <i class="fa fa-star-o" aria-hidden="true"></i>
+      </a>
+      <a *ngIf="entry.alreadyAdded" class="button is-fullwidth is-danger remove-button" (click)="removeFromFavs(entry)">
+          <i class="fa fa-times" aria-hidden="true"></i>
       </a>
     </div>
   </section>
