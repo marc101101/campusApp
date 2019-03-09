@@ -34,16 +34,16 @@ import { NgxMapboxGLModule } from 'ngx-mapbox-gl';
     TimetableComponent,
     DetailsComponent,
     FavouriteComponent,
-    LoaderComponent
+    LoaderComponent,
+    MapComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
     NgxMapboxGLModule.withConfig({
       accessToken:'pk.eyJ1Ijoib3dsd2FsZCIsImEiOiJjajF5eGtncGYwMDBzMzNvY2ZlZHhzdWIyIn0.MzZyfZ3aAcYro6YPyy2CqQ'
-
     })
   ],
   providers: [
