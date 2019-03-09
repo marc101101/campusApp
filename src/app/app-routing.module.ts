@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { PageNotFoundComponent } from './not-found';
+import { ChatComponent } from 'src/chat/chat.component';
 
 const routes: Routes = [
   {
@@ -16,7 +17,12 @@ const routes: Routes = [
   {
       path: '**',
       component: PageNotFoundComponent
+  },
+  {
+    path: 'chat',
+    component: ChatComponent
   }
+
 ];
 
 @NgModule({
