@@ -12,13 +12,7 @@ import { CommunicationService } from './shared/communication.service';
 import { AlertService } from './services/alert.service';
 import { HomeService } from './services/home.service';
 import { TimetableComponent } from './timetable/timetable.component';
-import { ChatComponent } from './chat/chat.component';
-import { SocketService } from './services/socket.service';
-import { FormsModule } from '@angular/forms';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import { MaterialModule } from './sharedModule/material/material.module';
-import { DialogUserComponent } from './dialog-user/dialog-user.component';
-import { ChatModule } from './chat/chat.module';
+
 import { MapComponent } from './map/map.component';
 import { DetailsComponent } from './details/details.component';
 import { BandService } from './services/band.service';
@@ -34,8 +28,6 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { MaterialModule } from './sharedModule/material/material.module';
 import { DialogUserComponent } from './dialog-user/dialog-user.component';
 import { ChatModule } from './chat/chat.module';
-
-import { NgxMapboxGLModule } from 'ngx-mapbox-gl';
 
 import { NgxMapboxGLModule } from 'ngx-mapbox-gl';
 
@@ -55,34 +47,27 @@ import { NgxMapboxGLModule } from 'ngx-mapbox-gl';
     BrowserModule,
     FormsModule,
     AppRoutingModule,
-<<<<<<<<< Temporary merge branch 1
     HttpClientModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
     NgxMapboxGLModule.withConfig({
       accessToken:'pk.eyJ1Ijoib3dsd2FsZCIsImEiOiJjajF5eGtncGYwMDBzMzNvY2ZlZHhzdWIyIn0.MzZyfZ3aAcYro6YPyy2CqQ'
-    })
-=========
+    }),
     BrowserAnimationsModule,
     MaterialModule,
-    ChatModule,
-    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
->>>>>>>>> Temporary merge branch 2
+    ChatModule
   ],
   providers: [
     CommunicationService,
     AlertService,
     HomeService,
-<<<<<<<<< Temporary merge branch 1
     BandService,
     HttpClientModule,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: LoaderInterceptorService,
       multi: true
-    }
-=========
+    },
     SocketService
->>>>>>>>> Temporary merge branch 2
     ],
   bootstrap: [AppComponent],
   exports: [MenuComponent]
