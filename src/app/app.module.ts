@@ -15,20 +15,26 @@ import { TimetableComponent } from './timetable/timetable.component';
 import { ChatComponent } from './chat/chat.component';
 import { SocketService } from './services/socket.service';
 import { FormsModule } from '@angular/forms';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { MaterialModule } from './sharedModule/material/material.module';
+import { DialogUserComponent } from './dialog-user/dialog-user.component';
+import { ChatModule } from './chat/chat.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     PageNotFoundComponent,
-    ChatComponent,
     MenuComponent,
-    TimetableComponent
+    TimetableComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
     AppRoutingModule,
+    BrowserAnimationsModule,
+    MaterialModule,
+    ChatModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [

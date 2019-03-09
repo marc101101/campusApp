@@ -1,16 +1,19 @@
 import { Action } from './../model/action';
-import { Component, OnInit, AfterViewInit, ViewChildren, ViewChild, QueryList, ElementRef } from '@angular/core';
+import { Component, OnInit, ViewChildren, ViewChild, AfterViewInit, QueryList, ElementRef } from '@angular/core';
+import { MatDialog, MatDialogRef, MatList, MatListItem } from '@angular/material';
 import { Event } from './../model/event';
 import { Message } from './../model/message';
 import { User } from './../model/user';
 import { SocketService } from './../services/socket.service';
+import { DialogUserComponent } from './../dialog-user/dialog-user.component';
+import { DialogUserType } from './../dialog-user/dialog-user-type';
 
 
 
 @Component({
   selector: 'app-chat',
   templateUrl: './chat.component.html',
-  styleUrls: ['./chat.component.sass']
+  styleUrls: ['./chat.component.css']
 })
 export class ChatComponent implements OnInit, AfterViewInit {
   action = Action;
@@ -18,24 +21,53 @@ export class ChatComponent implements OnInit, AfterViewInit {
   messages: Message[] = [];
   messageContent: string;
   ioConnection: any;
-  hide: boolean;
+  dialogRef: MatDialogRef<DialogUserComponent> | null;
+  defaultDialogUserParams: any = {
+    disableClose: true,
+    data: {
+      title: 'Hi, schön dass du da bist!',
+      dialogType: DialogUserType.NEW
+    }
+  };
 
+  // getting a reference to the overall list, which is the parent container of the list items
+  @ViewChild(MatList, { read: ElementRef }) matList: ElementRef;
 
-  constructor(private socketService: SocketService) { }
+  // getting a reference to the items/messages within the list
+  @ViewChildren(MatListItem, { read: ElementRef }) matListItems: QueryList<MatListItem>;
 
-  ngOnInit() {
-    this.user.name = '';
+  constructor(private socketService: SocketService, public dialog: MatDialog) { }
+
+  ngOnInit(): void {
+    this.initModel();
+    // Using timeout due to https://github.com/angular/angular/issues/14748
+    setTimeout(() => {
+      this.openUserPopup(this.defaultDialogUserParams);
+    }, 0);
   }
 
-  /*ngAfterViewInit(): void {
+  ngAfterViewInit(): void {
     // subscribing to any changes in the list of items / messages
-    //this.matListItems.changes.subscribe(elements => {
+    this.matListItems.changes.subscribe(elements => {
       this.scrollToBottom();
     });
-  }*/
+  }
 
-  ngAfterViewInit(): void {
-    console.log('hi');
+  // auto-scroll fix: inspired by this stack overflow post
+  // https://stackoverflow.com/questions/35232731/angular2-scroll-to-bottom-chat-style
+  private scrollToBottom(): void {
+    try {
+      this.matList.nativeElement.scrollTop = this.matList.nativeElement.scrollHeight;
+    } catch (err) {
+    }
+  }
+
+  private initModel(): void {
+    const randomId = this.getRandomId();
+    this.user = {
+      id: randomId,
+      //avatar: `${AVATAR_URL}/${randomId}.png`
+    };
   }
 
   private initIoConnection(): void {
@@ -56,6 +88,37 @@ export class ChatComponent implements OnInit, AfterViewInit {
       .subscribe(() => {
         console.log('disconnected');
       });
+  }
+
+  private getRandomId(): number {
+    return Math.floor(Math.random() * (1000000)) + 1;
+  }
+
+  public onClickUserInfo() {
+    this.openUserPopup({
+      data: {
+        username: this.user.name,
+        title: 'Edit Details',
+        dialogType: DialogUserType.EDIT
+      }
+    });
+  }
+
+  private openUserPopup(params): void {
+    this.dialogRef = this.dialog.open(DialogUserComponent, params);
+    this.dialogRef.afterClosed().subscribe(paramsDialog => {
+      if (!paramsDialog) {
+        return;
+      }
+
+      this.user.name = paramsDialog.username;
+      if (paramsDialog.dialogType === DialogUserType.NEW) {
+        this.initIoConnection();
+        this.sendNotification(paramsDialog, Action.JOINED);
+      } else if (paramsDialog.dialogType === DialogUserType.EDIT) {
+        this.sendNotification(paramsDialog, Action.RENAME);
+      }
+    });
   }
 
   public sendMessage(message: string): void {
@@ -90,6 +153,4 @@ export class ChatComponent implements OnInit, AfterViewInit {
 
     this.socketService.send(message);
   }
-
-
 }
