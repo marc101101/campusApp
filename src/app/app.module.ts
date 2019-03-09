@@ -13,6 +13,9 @@ import { CommunicationService } from './shared/communication.service';
 import { AlertService } from './services/alert.service';
 import { HomeService } from './services/home.service';
 import { TimetableComponent } from './timetable/timetable.component';
+import { MapComponent } from './map/map.component';
+
+import { NgxMapboxGLModule } from 'ngx-mapbox-gl';
 
 @NgModule({
   declarations: [
@@ -21,12 +24,17 @@ import { TimetableComponent } from './timetable/timetable.component';
     PageNotFoundComponent,
     ChatComponent,
     MenuComponent,
-    TimetableComponent
+    TimetableComponent,
+    MapComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
+    NgxMapboxGLModule.withConfig({
+      accessToken:'pk.eyJ1Ijoib3dsd2FsZCIsImEiOiJjajF5eGtncGYwMDBzMzNvY2ZlZHhzdWIyIn0.MzZyfZ3aAcYro6YPyy2CqQ'
+
+    })
   ],
   providers: [
     CommunicationService,
