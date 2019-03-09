@@ -26,9 +26,7 @@ export class FavouriteComponent implements OnInit {
   removeFromFavs(entry){
     this.favourites.forEach((element, i) => {
       if(element.id == entry.id){
-        this.favourites.splice(i, 1);
-        console.log(this.favourites);
-        
+        this.favourites.splice(i, 1);        
         localStorage.setItem("favs", JSON.stringify(this.favourites));      
       }
       

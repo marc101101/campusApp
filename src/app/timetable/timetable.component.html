@@ -15,10 +15,10 @@
     <div *ngFor="let entry of entries; let i=index" style="margin-top:1.5rem">
       <div class="card" [(routerLink)]="'/details/' + entry.id" style="height: 5rem;">
         <p class="title" style="font-size: 1.5rem !important">
-          {{entry.band}}
+          {{entry.name}}
         </p>
         <p class="title">
-          Spielzeit: {{entry.time}}
+          Spielzeit: {{entry.stagetime_start| date :'short'}}
           </p>
       </div>
       <a *ngIf="!entry.alreadyAdded" class="button is-fullwidth is-warning nav-button" (click)="addToFavs(entry)">

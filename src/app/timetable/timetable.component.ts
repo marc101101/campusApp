@@ -16,7 +16,7 @@ export class TimetableComponent implements OnInit {
 
   ngOnInit() {
     this.bandService.getAllBands().subscribe( response => {
-      this.entries = response;
+      this.entries = response.data;
       this.dataIsAvailable = true;
       
       this.favourites = JSON.parse(localStorage.getItem("favs"));

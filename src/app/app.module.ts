@@ -16,6 +16,8 @@ import { TimetableComponent } from './timetable/timetable.component';
 import { DetailsComponent } from './details/details.component';
 import { BandService } from './services/band.service';
 import { FavouriteComponent } from './favourite/favourite.component';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { LoaderInterceptorService } from './services/loader-interceptor.service';
 
 @NgModule({
   declarations: [
@@ -31,13 +33,20 @@ import { FavouriteComponent } from './favourite/favourite.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [
     CommunicationService,
     AlertService,
     HomeService,
-    BandService
+    BandService,
+    HttpClientModule,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: LoaderInterceptorService,
+      multi: true
+    }
     ],
   bootstrap: [AppComponent],
   exports: [MenuComponent]

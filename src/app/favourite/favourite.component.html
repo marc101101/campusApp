@@ -15,10 +15,10 @@
       <div *ngFor="let fav of favourites; let i=index" style="margin-top:1.5rem" [(routerLink)]="'/details/' + fav.id">
         <div class="card" style="height: 5rem;">
           <p class="title" style="font-size: 1.5rem !important">
-            {{fav.band}}
+            {{fav.name}}
           </p>
           <p class="title">
-            Spielzeit: {{fav.time}}
+            Spielzeit: {{fav.stagetime_start | date: 'short'}}
             </p>
         </div>
         <a class="button is-fullwidth is-danger remove-button" (click)="removeFromFavs(fav)">

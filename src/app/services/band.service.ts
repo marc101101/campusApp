@@ -1,13 +1,15 @@
 import { Injectable } from '@angular/core';
 import { AlertService } from './alert.service';
 import { Observable, of } from 'rxjs';
+import { HttpClient, HttpErrorResponse } from '../../../node_modules/@angular/common/http';
+import { map, catchError } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
 export class BandService {
 
-  constructor(public alertService: AlertService) {}
+  constructor(public alertService: AlertService, public http: HttpClient) {}
     data = [{
         id:0,
         band: "Rammstein",
@@ -60,17 +62,39 @@ export class BandService {
    * Get all categories from backend.
    */
   getAllBands(): Observable<any> {
-    return of(this.data);
+    return this.http.get("https://api.campusfest.app/_/items/artist").pipe(
+      map((res: Response) => {
+        return res;
+      }),
+      catchError((err: HttpErrorResponse) => {
+        this.alertService.push(err);
+        return of(err);
+      })
+    )
   }
 
   getBandById(id:number): Observable<any>{
-    let foundelement;
-    this.data.forEach(element=>{
-        if(element.id == id){
-            foundelement = element;
-        }
-    })
-    return of(foundelement);
+    return this.http.get("https://api.campusfest.app/_/items/artist/" + id).pipe(
+      map((res: Response) => {
+        return res;
+      }),
+      catchError((err: HttpErrorResponse) => {
+        this.alertService.push(err);
+        return of(err);
+      })
+    )
+  }
+
+  getBandImg(id:number): Observable<any>{
+    return this.http.get("https://api.campusfest.app/_/files/" + id).pipe(
+      map((res: Response) => {
+        return res;
+      }),
+      catchError((err: HttpErrorResponse) => {
+        this.alertService.push(err);
+        return of(err);
+      })
+    )
   }
   
 }
