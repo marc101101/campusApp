@@ -13,6 +13,8 @@ import { CommunicationService } from './shared/communication.service';
 import { AlertService } from './services/alert.service';
 import { HomeService } from './services/home.service';
 import { TimetableComponent } from './timetable/timetable.component';
+import { DetailsComponent } from './details/details.component';
+import { BandService } from './services/band.service';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,8 @@ import { TimetableComponent } from './timetable/timetable.component';
     PageNotFoundComponent,
     ChatComponent,
     MenuComponent,
-    TimetableComponent
+    TimetableComponent,
+    DetailsComponent
   ],
   imports: [
     BrowserModule,
@@ -31,7 +34,8 @@ import { TimetableComponent } from './timetable/timetable.component';
   providers: [
     CommunicationService,
     AlertService,
-    HomeService
+    HomeService,
+    BandService
     ],
   bootstrap: [AppComponent],
   exports: [MenuComponent]

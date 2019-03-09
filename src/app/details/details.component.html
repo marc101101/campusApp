@@ -1,0 +1,30 @@
+<div class="container fullscreenBackground">
+  <div class="card-content ol" [style.background-image]="'url(/assets/img/band_' + band.id + '.jpg)'" style="background-size: cover; height:13rem; ">
+  </div>
+  <section class="padding-1">
+    <div class="columns is-mobile">
+      <div class="column is-12">
+        <div class="headline-style" style="color:black">
+          {{band.band}}
+        </div>
+        <div class="headline-style" style="color:black; font-size: 1rem;">
+            <i class="fa fa-clock-o" aria-hidden="true"></i>
+
+          {{band.time}}
+        </div>
+        <div class="headline-style" style="color:black; font-size: 1rem;">
+            <i class="fa fa-map-marker" aria-hidden="true"></i>
+            {{band.stage}}
+        </div>
+
+      </div>
+      <div class="columns is-mobile">
+      </div>
+    </div>
+  </section>
+
+  <section class="padding-1" *ngIf="dataIsAvailable">
+
+  </section>
+
+</div>

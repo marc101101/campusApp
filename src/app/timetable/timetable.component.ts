@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { BandService } from '../services/band.service';
 
 @Component({
   selector: 'app-timetable',
@@ -7,19 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TimetableComponent implements OnInit {
 
-  constructor() { }
+  constructor(public bandService:BandService) { }
 
   entries = [
-    {
-      id:0,
-      band: "Rammstein",
-      time: "11:15 - 12:30"
-    }
   ];
 
-  dataIsAvailable = true;
+  dataIsAvailable = false;
 
   ngOnInit() {
+    this.bandService.getAllBands().subscribe( response => {
+      this.entries = response;
+      this.dataIsAvailable = true;
+    });
   }
 
 }

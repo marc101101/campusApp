@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { PageNotFoundComponent } from './not-found';
 import { TimetableComponent } from './timetable/timetable.component';
+import { DetailsComponent } from './details/details.component';
 
 const routes: Routes = [
   {
@@ -17,7 +18,11 @@ const routes: Routes = [
   {
     path: 'timetable',
     component: TimetableComponent
-},
+  },
+  {
+    path: 'details/:id',
+    component: DetailsComponent
+  },
   {
       path: '**',
       component: PageNotFoundComponent
