@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HomeService } from '../services/home.service';
 
 @Component({
   selector: 'app-home',
@@ -7,9 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  dataIsAvailable: boolean = false;
+  news = [];
+
+  constructor(public homeService: HomeService) {  }
 
   ngOnInit() {
+    this.homeService.getNews().subscribe(response => {
+      this.news = response;
+      this.dataIsAvailable = true;
+      console.log(this.news);
+      
+    })
   }
 
 }

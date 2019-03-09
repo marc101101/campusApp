@@ -11,6 +11,7 @@ import { ChatComponent } from './chat/chat.component';
 import { MenuComponent } from './shared/menu/menu.component';
 import { CommunicationService } from './shared/communication.service';
 import { AlertService } from './services/alert.service';
+import { HomeService } from './services/home.service';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { AlertService } from './services/alert.service';
   ],
   providers: [
     CommunicationService,
-    AlertService   
+    AlertService,
+    HomeService
     ],
   bootstrap: [AppComponent],
   exports: [MenuComponent]
