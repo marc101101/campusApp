@@ -1,0 +1,37 @@
+<div class="container fullscreenBackground">
+  <div class="circleBackground"></div>
+  <div class="circleBackground" style="background-color:#3F6B32; margin-top: -18rem; margin-left: -12rem;"></div>
+  <div class="columns is-mobile">
+    <div class="column is-12 headline-position">
+      <div class="headline-style">
+        Timetable
+      </div>
+    </div>
+    <div class="columns is-mobile">
+    </div>
+  </div>
+
+  <section class="padding-1" *ngIf="dataIsAvailable">
+    <div *ngFor="let entry of entries; let i=index">
+      <div class="card" [(routerLink)]="'/message/detail/' + entry.id">
+        <span>
+          <p class="title" style="font-size: 2rem">
+            {{entry.band}}
+          </p>
+          <p class="title">
+              Spielzeit: {{entry.time}}
+            </p>
+        </span>
+        <span>
+          <i class="fa fa-star-o right" aria-hidden="true"></i>
+        </span>
+      </div>
+    </div>
+  </section>
+
+  <div class="stage-select">
+    <span class="stage">Center</span>
+    <span class="stage">Electro</span>
+    <span class="stage">Metal </span>
+  </div>
+</div>

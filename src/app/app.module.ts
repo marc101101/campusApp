@@ -12,6 +12,7 @@ import { MenuComponent } from './shared/menu/menu.component';
 import { CommunicationService } from './shared/communication.service';
 import { AlertService } from './services/alert.service';
 import { HomeService } from './services/home.service';
+import { TimetableComponent } from './timetable/timetable.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { HomeService } from './services/home.service';
     HomeComponent,
     PageNotFoundComponent,
     ChatComponent,
-    MenuComponent
+    MenuComponent,
+    TimetableComponent
   ],
   imports: [
     BrowserModule,
