@@ -27,6 +27,15 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { LoaderInterceptorService } from './services/loader-interceptor.service';
 import { LoaderComponent } from './loader/loader.component';
 import { AlertComponent } from './sharedModule/alert/alert.component';
+import { ChatComponent } from './chat/chat.component';
+import { SocketService } from './services/socket.service';
+import { FormsModule } from '@angular/forms';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { MaterialModule } from './sharedModule/material/material.module';
+import { DialogUserComponent } from './dialog-user/dialog-user.component';
+import { ChatModule } from './chat/chat.module';
+
+import { NgxMapboxGLModule } from 'ngx-mapbox-gl';
 
 import { NgxMapboxGLModule } from 'ngx-mapbox-gl';
 
@@ -46,19 +55,24 @@ import { NgxMapboxGLModule } from 'ngx-mapbox-gl';
     BrowserModule,
     FormsModule,
     AppRoutingModule,
+<<<<<<<<< Temporary merge branch 1
     HttpClientModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
     NgxMapboxGLModule.withConfig({
       accessToken:'pk.eyJ1Ijoib3dsd2FsZCIsImEiOiJjajF5eGtncGYwMDBzMzNvY2ZlZHhzdWIyIn0.MzZyfZ3aAcYro6YPyy2CqQ'
     })
+=========
     BrowserAnimationsModule,
     MaterialModule,
     ChatModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
+>>>>>>>>> Temporary merge branch 2
   ],
   providers: [
     CommunicationService,
     AlertService,
     HomeService,
+<<<<<<<<< Temporary merge branch 1
     BandService,
     HttpClientModule,
     {
@@ -66,7 +80,9 @@ import { NgxMapboxGLModule } from 'ngx-mapbox-gl';
       useClass: LoaderInterceptorService,
       multi: true
     }
+=========
     SocketService
+>>>>>>>>> Temporary merge branch 2
     ],
   bootstrap: [AppComponent],
   exports: [MenuComponent]
