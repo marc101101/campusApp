@@ -13,7 +13,7 @@
 
   <section class="section" style="padding-left: 0.7rem;">
       <div class="container">
-        <div class="list">
+        <div class="list chat-list">
           <div class="list-item" *ngFor="let message of messages" [ngClass]="[(message.action === undefined && message.from.id === user.id)? 'chat-list-item': '']">
               <h4 mat-line *ngIf="message.action === undefined">
                   <b>{{message.from.name}}</b>
@@ -34,6 +34,7 @@
                 <label class="label">Nachricht:</label>
                 <div class="control">
                   <input #inputMessage maxlength="140" [(ngModel)]="messageContent" (keyup.enter)="sendMessage(messageContent)" class="input" type="text" placeholder="Deine Nachricht">
+                  <button class="button is-rounded" (click)="sendMessage(messageContent)">Go</button>
                 </div>
                 <p class="help">{{inputMessage.value.length}}/140</p>
               </div>

@@ -18,10 +18,13 @@ export class ChatComponent implements OnInit, AfterViewInit {
   messages: Message[] = [];
   messageContent: string;
   ioConnection: any;
+  hide: boolean;
+
 
   constructor(private socketService: SocketService) { }
 
   ngOnInit() {
+    this.user.name = '';
   }
 
   /*ngAfterViewInit(): void {
