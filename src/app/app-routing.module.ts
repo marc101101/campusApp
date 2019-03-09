@@ -4,6 +4,10 @@ import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { PageNotFoundComponent } from './not-found';
 import { TimetableComponent } from './timetable/timetable.component';
+import { MapComponent } from './map/map.component';
+import { DetailsComponent } from './details/details.component';
+import { FavouriteComponent } from './favourite/favourite.component';
+
 
 const routes: Routes = [
   {
@@ -20,17 +24,30 @@ const routes: Routes = [
     component: TimetableComponent
 },
 {
+    path: 'stands',
+    component: MapComponent
+},
+{
   path: 'chat',
   component: ChatComponent
 },
   {
+    path: 'details/:id',
+    component: DetailsComponent
+  },
+  {
+    path: 'favourites',
+    component: FavouriteComponent
+  },
+  {
       path: '**',
       component: PageNotFoundComponent
   }
+
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {useHash: true})],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

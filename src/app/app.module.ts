@@ -12,6 +12,14 @@ import { CommunicationService } from './shared/communication.service';
 import { AlertService } from './services/alert.service';
 import { HomeService } from './services/home.service';
 import { TimetableComponent } from './timetable/timetable.component';
+import { MapComponent } from './map/map.component';
+import { DetailsComponent } from './details/details.component';
+import { BandService } from './services/band.service';
+import { FavouriteComponent } from './favourite/favourite.component';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { LoaderInterceptorService } from './services/loader-interceptor.service';
+import { LoaderComponent } from './loader/loader.component';
+import { AlertComponent } from './sharedModule/alert/alert.component';
 import { ChatComponent } from './chat/chat.component';
 import { SocketService } from './services/socket.service';
 import { FormsModule } from '@angular/forms';
@@ -20,6 +28,8 @@ import { MaterialModule } from './sharedModule/material/material.module';
 import { DialogUserComponent } from './dialog-user/dialog-user.component';
 import { ChatModule } from './chat/chat.module';
 
+import { NgxMapboxGLModule } from 'ngx-mapbox-gl';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,6 +37,10 @@ import { ChatModule } from './chat/chat.module';
     PageNotFoundComponent,
     MenuComponent,
     TimetableComponent,
+    DetailsComponent,
+    FavouriteComponent,
+    LoaderComponent,
+    MapComponent
   ],
   imports: [
     BrowserModule,
@@ -35,13 +49,24 @@ import { ChatModule } from './chat/chat.module';
     BrowserAnimationsModule,
     MaterialModule,
     ChatModule,
-    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
+    HttpClientModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
+    NgxMapboxGLModule.withConfig({
+      accessToken:'pk.eyJ1Ijoib3dsd2FsZCIsImEiOiJjajF5eGtncGYwMDBzMzNvY2ZlZHhzdWIyIn0.MzZyfZ3aAcYro6YPyy2CqQ'
+    })
   ],
   providers: [
     CommunicationService,
     AlertService,
     HomeService,
     SocketService
+    BandService,
+    HttpClientModule,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: LoaderInterceptorService,
+      multi: true
+    }
     ],
   bootstrap: [AppComponent],
   exports: [MenuComponent]
