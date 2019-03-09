@@ -14,17 +14,16 @@
   <section style="padding-left: 0.7rem;">
     <h3 style="color:white; margin-top:1.5rem; margin-left: 0.3rem">Whats up?!</h3>
     <div class="scrolling-wrapper">
-      <div class="cardVert card" style="padding:0.5rem" *ngFor="let act of current_acts">
+      <div class="cardVert card" style="padding:0.5rem" *ngFor="let act of current_acts" [(routerLink)]="'/details/' + act.id">
         <h2 style="font-weight:700">{{act.name}}</h2>
         <div>
           <i class="fa fa-map-marker" style="color:#769941" aria-hidden="true"></i>
-          {{act.place}}
+          {{act.stage}}
         </div>
         <div>
           <i class="fa fa-clock-o" style="color:#769941" aria-hidden="true"></i>
-          {{act.time}}
+          {{act.stagetime_start | date: 'short'}}
         </div>
-
       </div>
 
     </div>
@@ -39,13 +38,13 @@
       </div>
       <span>
         <p class="title">
-          {{message.title.rendered}}
+          {{message.title}}
         </p>
       </span>
+      <hr>
       <span>
           <i class="fa fa-chevron-right right" aria-hidden="true"></i>
       </span>
-      <hr>
     </div>
   </section>
 </div>

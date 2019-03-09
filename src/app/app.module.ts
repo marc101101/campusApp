@@ -18,6 +18,8 @@ import { BandService } from './services/band.service';
 import { FavouriteComponent } from './favourite/favourite.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { LoaderInterceptorService } from './services/loader-interceptor.service';
+import { LoaderComponent } from './loader/loader.component';
+import { AlertComponent } from './sharedModule/alert/alert.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,8 @@ import { LoaderInterceptorService } from './services/loader-interceptor.service'
     MenuComponent,
     TimetableComponent,
     DetailsComponent,
-    FavouriteComponent
+    FavouriteComponent,
+    LoaderComponent
   ],
   imports: [
     BrowserModule,

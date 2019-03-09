@@ -1,7 +1,7 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { LoaderService } from '../_services/loader.service';
 import { LoaderState } from './loader.model';
+import { LoaderService } from '../services/loader.service';
 
 @Component({
   selector: 'app-loader',
