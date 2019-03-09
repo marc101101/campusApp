@@ -2,12 +2,12 @@
 .circleBackground{
     height: 30rem;
     width: 30rem;
-    z-index: -1;
-    background-color: #209cee;
+    background-color: #769941;
     border-radius: 15rem;
     position: absolute;
-    margin-top: -13rem;
-    margin-left: -7rem;
+    margin-top: -1rem;
+    margin-left: 2rem;
+
 }
 
 .fullscreenBackground {
@@ -20,6 +20,7 @@
 .card {
     margin-top: 1rem;
     border-radius: 0.2rem;
+    overflow: hidden;
 }
 
 .title {
