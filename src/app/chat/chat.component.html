@@ -1,3 +1,43 @@
-<p>
-  chat works!
-</p>
+<div class="container fullscreenBackground">
+  <div class="circleBackground"></div>
+  <div class="circleBackground" style="background-color:#3F6B32; margin-top: -18rem; margin-left: -12rem;"></div>
+  <div class="columns is-mobile">
+    <div class="column is-12 headline-position">
+      <div class="headline-style">
+        Chat
+      </div>
+    </div>
+    <div class="columns is-mobile">
+    </div>
+  </div>
+
+  <section class="section" style="padding-left: 0.7rem;">
+      <div class="container">
+        <div class="list">
+          <div class="list-item" *ngFor="let message of messages" [ngClass]="[(message.action === undefined && message.from.id === user.id)? 'chat-list-item': '']">
+              <h4 mat-line *ngIf="message.action === undefined">
+                  <b>{{message.from.name}}</b>
+                </h4>
+                <p mat-line *ngIf="message.action === undefined">
+                    <span> {{message.content}} </span>
+                  </p>
+                  <p mat-line *ngIf="message.action === action.JOINED" class="chat-notification">
+                      <span> <b>{{message.from.name}}</b> ist da. </span>
+                    </p>
+                    <p mat-line *ngIf="message.action === action.RENAME" class="chat-notification">
+                      <span> <b>{{message.content.previousUsername}}</b> ist jetzt <b>{{message.content.username}}</b> </span>
+                    </p>
+          </div>
+        </div>
+        <div class="chat-footer-container">
+            <div class="field">
+                <label class="label">Nachricht:</label>
+                <div class="control">
+                  <input #inputMessage maxlength="140" [(ngModel)]="messageContent" (keyup.enter)="sendMessage(messageContent)" class="input" type="text" placeholder="Deine Nachricht">
+                </div>
+                <p class="help">{{inputMessage.value.length}}/140</p>
+              </div>
+              
+        </div>
+      </div>
+</section>

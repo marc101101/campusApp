@@ -1,3 +1,4 @@
+import { ChatComponent } from './chat/chat.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
@@ -18,13 +19,13 @@ const routes: Routes = [
     path: 'timetable',
     component: TimetableComponent
 },
+{
+  path: 'chat',
+  component: ChatComponent
+},
   {
       path: '**',
       component: PageNotFoundComponent
-  },
-  {
-    path: 'chat',
-    component: PageNotFoundComponent
   }
 ];
 
