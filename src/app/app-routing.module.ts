@@ -2,6 +2,9 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { PageNotFoundComponent } from './not-found';
+import { TimetableComponent } from './timetable/timetable.component';
+import { MapComponent } from './map/map.component';
+
 
 const routes: Routes = [
   {
@@ -14,9 +17,18 @@ const routes: Routes = [
       component: HomeComponent
   },
   {
+    path: 'timetable',
+    component: TimetableComponent
+},
+{
+    path: 'stands',
+    component: MapComponent
+},
+  {
       path: '**',
       component: PageNotFoundComponent
   }
+
 ];
 
 @NgModule({
