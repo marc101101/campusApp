@@ -1,14 +1,34 @@
 .stage-select{
     bottom: 0px;
-    position: absolute;
+    position: fixed;
     background: #3F6B32;
     width: 100%;
     border-top-left-radius: 20rem;
     border-top-right-radius: 20rem;
     color:white;
-    height: 5rem
+    height: 2rem
 }
 
 .stage{
     padding: 2rem;
+    float: initial;
 }
+
+.nav-button {
+    border-radius: 3rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    float: right;
+    margin-top: -1.5rem;
+    margin-right: 1rem;
+}
+
+.remove-button {
+    border-radius: 3rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    float: right;
+    margin-top: -1.5rem;
+    margin-right: 1rem;
+  }
+  

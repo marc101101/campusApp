@@ -1,9 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { LeafletModule } from '@asymmetrik/ngx-leaflet';
-import { latLng, LatLng, tileLayer,marker,icon } from 'leaflet';
-import { formControlBinding } from '@angular/forms/src/directives/reactive_directives/form_control_directive';
-import { MapboxGeoJSONFeature, MapLayerMouseEvent } from 'mapbox-gl';
+import { MapLayerMouseEvent } from 'mapbox-gl';
 
 
 

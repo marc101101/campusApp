@@ -1,0 +1,55 @@
+<div class="container fullscreenBackground" *ngIf="dataIsAvailable">
+  <div class="card-content ol" [style.background-image]="'url(' + bandImage + ')'" style="background-size: cover; height:13rem; ">
+  </div>
+  <section class="padding-1">
+    <div class="columns is-mobile">
+      <div class="column is-12">
+        <div class="headline-style" style="color:black">
+          {{band.name}}
+        </div>
+        <div class="headline-style" style="color:black; font-size: 1rem;">
+            <i class="fa fa-clock-o" aria-hidden="true"></i>
+          Start: {{band.stagetime_start | date :'short'}}
+        </div>
+        <div class="headline-style" style="color:black; font-size: 1rem;">
+            <i class="fa fa-clock-o" aria-hidden="true"></i>
+          End: {{band.stagetime_end | date :'short'}}
+        </div>
+        <div class="headline-style" style="color:black; font-size: 1rem;">
+            <i class="fa fa-map-marker" aria-hidden="true"></i>
+            {{band.stage}}
+        </div>
+      </div>
+    </div>
+    
+    <div style=" width: 49%; float:left" [attr.href]="band.spotify_url">
+      <button class="button is-primary is-medium is-fullwidth" 
+      style="background-color:#67D862; color:white; border-radius: 5rem;">
+          <i class="fa fa-spotify" aria-hidden="true" style="margin-right: 0.5rem"></i>
+          Play 
+      </button>
+    </div>
+    <div *ngIf="!alreadyAdded" style="width: 49%; float:right">
+      <button class="button is-primary is-medium is-fullwidth" (click)="addToFavs(band)"
+      style="background-color:#ffdd57; color:black; border-radius: 5rem;" href="">
+          <i class="fa fa-star-o" aria-hidden="true" style="margin-right: 0.5rem"></i>
+        Add
+        </button>
+    </div>
+    <div *ngIf="alreadyAdded" style="width: 49%; float:right">
+        <button class="button is-primary is-medium is-fullwidth is-danger" (click)="removeFromFavs(band)"
+        style="color:white; border-radius: 5rem;" href="">
+            <i class="fa fa-times" aria-hidden="true" style="margin-right: 0.5rem; color:white"></i>
+          Remove
+          </button>
+      </div>
+    <p style="margin-top: 5rem">
+      {{band.press_text}}
+    </p>
+  </section>
+
+  <section class="padding-1" *ngIf="dataIsAvailable">
+
+  </section>
+
+</div>

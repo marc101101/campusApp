@@ -12,26 +12,27 @@
   </div>
 
   <section class="padding-1" *ngIf="dataIsAvailable">
-    <div *ngFor="let entry of entries; let i=index">
-      <div class="card" [(routerLink)]="'/message/detail/' + entry.id">
-        <span>
-          <p class="title" style="font-size: 2rem">
-            {{entry.band}}
+    <div *ngFor="let entry of entries; let i=index" style="margin-top:1.5rem">
+      <div class="card" [(routerLink)]="'/details/' + entry.id" style="height: 5rem;">
+        <p class="title" style="font-size: 1.5rem !important">
+          {{entry.name}}
+        </p>
+        <p class="title">
+          Spielzeit: {{entry.stagetime_start| date :'short'}}
           </p>
-          <p class="title">
-              Spielzeit: {{entry.time}}
-            </p>
-        </span>
-        <span>
-          <i class="fa fa-star-o right" aria-hidden="true"></i>
-        </span>
       </div>
+      <a *ngIf="!entry.alreadyAdded" class="button is-fullwidth is-warning nav-button" (click)="addToFavs(entry)">
+        <i class="fa fa-star-o" aria-hidden="true"></i>
+      </a>
+      <a *ngIf="entry.alreadyAdded" class="button is-fullwidth is-danger remove-button" (click)="removeFromFavs(entry)">
+          <i class="fa fa-times" aria-hidden="true"></i>
+      </a>
     </div>
   </section>
 
-  <div class="stage-select">
-    <span class="stage">Center</span>
-    <span class="stage">Electro</span>
-    <span class="stage">Metal </span>
-  </div>
+  <!--div class="stage-select">
+    <div class="stage">Center</div>
+    <div class="stage">Electro</div>
+    <div class="stage">Metal </div>
+  </div-->
 </div>
