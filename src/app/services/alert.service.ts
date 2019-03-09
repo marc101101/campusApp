@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Subject } from 'rxjs';
 import { Router, NavigationStart } from '@angular/router';
-import 'rxjs/add/observable/of';
 import { of } from 'rxjs';
 
 @Injectable({

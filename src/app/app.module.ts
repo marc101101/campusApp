@@ -8,20 +8,28 @@ import { environment } from '../environments/environment';
 import { HomeComponent } from './home/home.component';
 import { PageNotFoundComponent } from './not-found';
 import { ChatComponent } from './chat/chat.component';
+import { MenuComponent } from './shared/menu/menu.component';
+import { CommunicationService } from './shared/communication.service';
+import { AlertService } from './services/alert.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     PageNotFoundComponent,
-    ChatComponent
+    ChatComponent,
+    MenuComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [
+    CommunicationService,
+    AlertService   
+    ],
+  bootstrap: [AppComponent],
+  exports: [MenuComponent]
 })
 export class AppModule { }
