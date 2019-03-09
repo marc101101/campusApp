@@ -3,8 +3,10 @@ import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { PageNotFoundComponent } from './not-found';
 import { TimetableComponent } from './timetable/timetable.component';
+import { MapComponent } from './map/map.component';
 import { DetailsComponent } from './details/details.component';
 import { FavouriteComponent } from './favourite/favourite.component';
+
 
 const routes: Routes = [
   {
@@ -19,7 +21,11 @@ const routes: Routes = [
   {
     path: 'timetable',
     component: TimetableComponent
-  },
+},
+{
+    path: 'stands',
+    component: MapComponent
+},
   {
     path: 'details/:id',
     component: DetailsComponent
@@ -32,6 +38,7 @@ const routes: Routes = [
       path: '**',
       component: PageNotFoundComponent
   }
+
 ];
 
 @NgModule({
