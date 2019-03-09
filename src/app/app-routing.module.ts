@@ -21,6 +21,10 @@ const routes: Routes = [
   {
       path: '**',
       component: PageNotFoundComponent
+  },
+  {
+    path: 'chat',
+    component: PageNotFoundComponent
   }
 ];
 
