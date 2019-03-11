@@ -1,27 +1,63 @@
-# CampusApp
+# Campus App 2019
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.5.
+<p>
+   <a href="https://github.com/marc101101/PS_SS18_vhsLangquaid/releases">
+        <img src="https://img.shields.io/badge/release-0.0.10-blue.svg?longCache=true" alt="Latest release" />
+    </a>
+    <a href="https://travis-ci.com/marc101101/campusApp">
+        <img src="https://travis-ci.com/marc101101/campusApp.svg?token=q4ZzuewzZrMnM6gfyh2w&branch=master" alt="Build status" />
+    </a>
+</p>
 
-## Development server
+The application is reachable [here](http://campus.app.s3-website.eu-central-1.amazonaws.com).
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Installation pre-requisites
 
-## Code scaffolding
+These are some tutorials to install node on different operating systems:
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+*Its important to install the latest version of Node:*
 
-## Build
+- [Install Node and NPM on Windows](https://www.youtube.com/watch?v=8ODS6RM6x7g)
+- [Install Node and NPM on Linux](https://www.youtube.com/watch?v=yUdHk-Dk_BY)
+- [Install Node and NPM on Mac](https://www.youtube.com/watch?v=Imj8PgG3bZU)
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
 
-## Running unit tests
+## How To install this repository
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+We can install the master branch using the following commands:
 
-## Running end-to-end tests
+    git clone https://github.com/marc101101/campusApp.git
+    
+This repository is made of several separate npm modules, that are installable separately:
+    
+    cd campusApp
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+Its possible to install the modules as usual using npm:
 
-## Further help
+    npm install 
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+Prefered installer is yarn:
+
+    yarn install
+
+
+## Running the Development UI Server
+
+To run the frontend part of our code, we will use the Angular CLI:
+
+    npm start
+
+The development application is visible at port 4200  - [http://localhost:4200](http://localhost:4200).
+
+
+## Authors
+
+* **Markus Guder** - [Github](https://github.com/marc101101) 
+* **Felix Kopp** - [Github](https://github.com/fxkopp)
+* **Ewald Reinhardt** - [Github]https://github.com/Owlwald)
+* **Konstantin Seitz** - [Github](https://github.com/Schkai)
+
+## License
+
+Licensed under the [MIT](LICENSE.txt) License.
+
